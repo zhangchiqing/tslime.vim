@@ -27,6 +27,10 @@ function! Send_to_Tmux(text)
   call system("tmux paste-buffer -t " . target)
 endfunction
 
+function! SendToTmux(text)
+  call Send_to_Tmux(a:text)
+endfunction
+
 " Session completion
 function! Tmux_Session_Names(A,L,P)
   return system("tmux list-sessions | sed -e 's/:.*$//'")
